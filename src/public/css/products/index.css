@@ -65,7 +65,8 @@
 
 .utilities__sort {
     margin-top: 20px;
-
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
 }
 
 .sort__header {
@@ -88,7 +89,7 @@
 
 }
 
-.sort__select--inner {
+.sort__select-inner {
     margin-top: 10px;
     border: 1px solid #ddd;
     height: 30px;
@@ -97,6 +98,37 @@
     border-radius: 3px;
     appearance: none;
     font-size: 12px;
+}
+
+.sort__select-inner:has(option:checked[value=""]) {
+    color: #ccc;
+}
+
+.sort__status {
+    position: relative;
+    font-size: 12px;
+    border: 1px solid #f5c800;
+    width: 100px;
+    padding: 5px;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+.sort__status::after {
+    position: absolute;
+    display: inline-block;
+    top: 7px;
+    right: 5px;
+    content: "×";
+    width: 13px;
+    height: 13px;
+    border: 1px solid #f5c800;
+    border-radius: 50%;
+    color: #f5c800;
+    text-align: center;
+    vertical-align: center;
+    font-size: 7px;
+    cursor: pointer;
 }
 
 .products {

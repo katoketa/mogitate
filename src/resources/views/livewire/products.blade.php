@@ -7,11 +7,20 @@
         <div class="utilities__sort">
             <h4 class="sort__header">価格順で表示</h4>
             <div class="sort__select">
-                <select name="sort" class="sort__select--inner">
-                    <option value="" selected hidden>価格で並び替え</option>
-                    <option value="1">高い順に表示</option>
-                    <option value="2">低い順に表示</option>
+                <select class="sort__select-inner" wire:model.change="sort_status">
+                    <option value="" disabled>価格で並び替え</option>
+                    <option value="descending-order">高い順に表示</option>
+                    <option value="ascending-order">低い順に表示</option>
                 </select>
+                @if ($sort_status === "descending-order")
+                <div class="sort__status">
+                    高い順に表示
+                </div>
+                @elseif ($sort_status === "ascending-order")
+                <div class="sort__status">
+                    低い順に表示
+                </div>
+                @endif
             </div>
         </div>
     </div>
