@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     @yield('css')
     <title>もぎたて</title>
+    @livewireStyles
 </head>
 
 <body>
@@ -17,6 +18,7 @@
     <main class="content">
         @yield('content')
     </main>
+    @livewireScripts
 </body>
 
 </html>
