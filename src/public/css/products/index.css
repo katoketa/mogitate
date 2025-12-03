@@ -114,21 +114,20 @@
     margin-top: 10px;
 }
 
-.sort__status::after {
+.sort__status-button {
     position: absolute;
-    display: inline-block;
     top: 7px;
     right: 5px;
-    content: "×";
     width: 13px;
     height: 13px;
     border: 1px solid #f5c800;
     border-radius: 50%;
     color: #f5c800;
     text-align: center;
-    vertical-align: center;
-    font-size: 7px;
+    font-size: 9px;
     cursor: pointer;
+    padding: 0;
+    background: transparent;
 }
 
 .products {

@@ -15,10 +15,12 @@
                 @if ($sort_status === "descending-order")
                 <div class="sort__status">
                     高い順に表示
+                    <button class="sort__status-button" wire:click="resetSortStatus">x</button>
                 </div>
                 @elseif ($sort_status === "ascending-order")
                 <div class="sort__status">
                     低い順に表示
+                    <button class="sort__status-button">x</button>
                 </div>
                 @endif
             </div>
