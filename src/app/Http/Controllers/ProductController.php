@@ -20,4 +20,10 @@ class ProductController extends Controller
         $seasons = Season::all();
         return view('products.detail', compact('product', 'seasons'));
     }
+
+    public function destroy($productId)
+    {
+        Product::find($productId)->delete();
+        return redirect('/products');
+    }
 }
