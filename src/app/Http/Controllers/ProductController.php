@@ -21,6 +21,12 @@ class ProductController extends Controller
         return view('products.detail', compact('product', 'seasons'));
     }
 
+    public function update(Request $request, $productId)
+    {
+        $file_name = $request->file('image')->getClientOriginalName();
+        dd($file_name);
+    }
+
     public function destroy($productId)
     {
         Product::find($productId)->delete();

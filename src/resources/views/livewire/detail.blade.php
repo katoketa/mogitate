@@ -1,8 +1,7 @@
 <div class="detail-page__content">
 
-    <form action="/products/{{ $product['id'] }}/update" class="product-form" method="post">
+    <form action="/products/{{ $product['id'] }}/update" class="product-form" method="post" enctype="multipart/form-data">
         @csrf
-        <input type="hidden" name="id" value="{{ $product['id'] }}">
         <div class="product-form__content">
             <div class="product-image">
                 @if ($product_image)
@@ -10,7 +9,7 @@
                 @else
                 <img src="{{ asset($product['image']) }}" alt="" class="product-image__img">
                 @endif
-                <input type="file" wire:model="product_image" accept="image/png,image/jpeg" class="product-image__input">
+                <input type="file" wire:model="product_image" accept="image/png,image/jpeg" class="product-image__input" name="image">
             </div>
             <div class="product-items">
                 <label class="product-item__header">商品名</label>
