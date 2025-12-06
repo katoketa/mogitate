@@ -5,9 +5,9 @@
         <div class="product-form__content">
             <div class="product-image">
                 @if ($product_image)
-                <img src="{{ $product_image->temporaryUrl() }}" alt="" class="product-image__img">
+                    <img src="{{ $product_image->temporaryUrl() }}" alt="" class="product-image__img">
                 @else
-                <img src="{{ asset($product['image']) }}" alt="" class="product-image__img">
+                    <img src="{{ asset($product['image']) }}" alt="" class="product-image__img">
                 @endif
                 <input type="file" wire:model="product_image" accept="image/png,image/jpeg" class="product-image__input" name="image">
             </div>
@@ -18,8 +18,8 @@
                 <input type="text" class="product-item__input-text" name="price" value="{{ $product['price'] }}">
                 <label class="product-item__header">季節</label>
                 @foreach ($seasons as $season)
-                <input type="checkbox" name="season_id[]" id="season{{ $season['id'] }}" class="product-item__input-checkbox" @foreach ($product['seasons'] as $product_season) @if ($season['id'] === $product_season['id']) checked @endif @endforeach>
-                <label for="season{{ $season['id'] }}" class="product-item__checkbox-label">{{ $season['name'] }}</label>
+                    <input type="checkbox" name="seasons[]" id="season{{ $season['id'] }}" class="product-item__input-checkbox" value="{{ $season['id'] }}" @foreach ($product['seasons'] as $product_season) @if ($season['id'] === $product_season['id']) checked @endif @endforeach>
+                    <label for="season{{ $season['id'] }}" class="product-item__checkbox-label">{{ $season['name'] }}</label>
                 @endforeach
             </div>
             <label class="product-item__header-description">商品説明</label>

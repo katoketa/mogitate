@@ -24,7 +24,13 @@ class ProductController extends Controller
     public function update(Request $request, $productId)
     {
         $file_name = $request->file('image')->getClientOriginalName();
-        dd($file_name);
+        $request->file('image')->storeAs('', $file_name, 'public');
+        $product = Product::with('seasons')->find($productId);
+        $update_product = $request->only('name', 'price', 'description');
+        $update_product['image'] = 'storage/' . $file_name;
+        $product->update($update_product);
+        $product->seasons()->sync($request->seasons);
+        return redirect('/products');
     }
 
     public function destroy($productId)
