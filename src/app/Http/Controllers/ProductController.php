@@ -39,4 +39,9 @@ class ProductController extends Controller
         Product::find($productId)->delete();
         return redirect('/products');
     }
+
+    public function register()
+    {
+        return view('products.register');
+    }
 }
