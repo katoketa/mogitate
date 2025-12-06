@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use App\Models\Season;
 
@@ -21,7 +22,7 @@ class ProductController extends Controller
         return view('products.detail', compact('product', 'seasons'));
     }
 
-    public function update(Request $request, $productId)
+    public function update(ProductRequest $request, $productId)
     {
         $file_name = $request->file('image')->getClientOriginalName();
         $request->file('image')->storeAs('', $file_name, 'public');
