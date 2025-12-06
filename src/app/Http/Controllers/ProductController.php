@@ -42,6 +42,7 @@ class ProductController extends Controller
 
     public function register()
     {
-        return view('products.register');
+        $seasons = Season::all();
+        return view('products.register', compact('seasons'));
     }
 }
