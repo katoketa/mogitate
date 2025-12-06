@@ -1,6 +1,6 @@
 <div class="detail-page__content">
 
-    <form action="/products/{{ $product['id'] }}/update" class="product-form" method="post" enctype="multipart/form-data">
+    <form action="/products/{{ $product['id'] }}/update" class="product-form" method="post" enctype="multipart/form-data" novalidate>
         @csrf
         <div class="product-form__content">
             <div class="product-image">
