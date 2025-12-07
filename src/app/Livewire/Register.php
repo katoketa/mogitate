@@ -11,7 +11,6 @@ class Register extends Component
 
     public $seasons;
     public $upload_image;
-    public $old;
 
     public function render()
     {

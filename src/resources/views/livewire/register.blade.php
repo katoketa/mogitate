@@ -8,7 +8,7 @@
     @if ($errors->has('name'))
     <ul class="register-form__error">
         @foreach ($errors->get('name') as $error)
-        <li class="register-form__error-list">{{ $error }}</li>
+        <li>{{ $error }}</li>
         @endforeach
     </ul>
     @endif
@@ -20,7 +20,7 @@
     @if ($errors->has('price'))
     <ul class="register-form__error">
         @foreach ($errors->get('price') as $error)
-        <li class="register-form__error-list">{{ $error }}</li>
+        <li>{{ $error }}</li>
         @endforeach
     </ul>
     @endif
@@ -29,15 +29,13 @@
         <span class="register-form__header-required">必須</span>
     </label>
     @if ($upload_image)
-    <div class="register-form__image">
-        <img src="{{ $upload_image->temporaryUrl() }}" class="register-form__image-img">
-    </div>
+    <img src="{{ $upload_image->temporaryUrl() }}" class="register-form__image-img">
     @endif
-    <input type="file" name="image" class="register-form__input-file" wire:model="upload_image" accept="image/png,image/jpeg">
+    <input type="file" name="image" wire:model="upload_image" accept="image/png,image/jpeg">
     @if ($errors->has('image'))
     <ul class="register-form__error">
         @foreach ($errors->get('image') as $error)
-        <li class="register-form__error-list">{{ $error }}</li>
+        <li>{{ $error }}</li>
         @endforeach
     </ul>
     @endif
@@ -47,13 +45,13 @@
         <span class="register-form__header-multiple">複数選択可</span>
     </label>
     @foreach ($seasons as $season)
-    <input type="checkbox" name="seasons[]" id="season{{ $season['id'] }}" class="register-form__input-checkbox" value="{{ $season['id'] }}" @if (old('seasons')) @foreach( old('seasons') as $old_season) @if ($old_season==$season['id']) checked @endif @endforeach @endif>
+    <input type="checkbox" name="seasons[]" id="season{{ $season['id'] }}" class="register-form__input-checkbox" value="{{ $season['id'] }}" @if (old('seasons')) @foreach( old('seasons') as $old_season) @if ($old_season == $season['id']) checked @endif @endforeach @endif>
     <label for="season{{ $season['id'] }}" class="register-form__label-checkbox">{{ $season['name'] }}</label>
     @endforeach
     @if ($errors->has('seasons'))
     <ul class="register-form__error">
         @foreach ($errors->get('seasons') as $error)
-        <li class="register-form__error-list">{{ $error }}</li>
+        <li>{{ $error }}</li>
         @endforeach
     </ul>
     @endif
@@ -65,7 +63,7 @@
     @if ($errors->has('description'))
     <ul class="register-form__error">
         @foreach ($errors->get('description') as $error)
-        <li class="register-form__error-list">{{ $error }}</li>
+        <li>{{ $error }}</li>
         @endforeach
     </ul>
     @endif
