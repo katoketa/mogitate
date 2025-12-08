@@ -1,7 +1,7 @@
 <div class="products-page__items">
     <div class="utilities">
         <form action="/products/search" method="get" class="utilities__search">
-            <input type="text" class="search__input" placeholder="商品名で検索">
+            <input type="text" name="keyword" class="search__input" placeholder="商品名で検索">
             <button type="submit" class="search__button">検索</button>
         </form>
         <div class="utilities__sort">
