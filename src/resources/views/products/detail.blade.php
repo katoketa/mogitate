@@ -2,6 +2,7 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/products/detail.css') }}">
+<script src="https://kit.fontawesome.com/077045ae67.js" crossorigin="anonymous"></script>
 @endsection
 
 @section('content')
