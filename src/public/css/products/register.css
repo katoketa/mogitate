@@ -65,7 +65,6 @@
     position: relative;
     margin-right: 30px;
     padding-left: 25px;
-    vertical-align: center;
 }
 
 .register-form__label-checkbox::before {
