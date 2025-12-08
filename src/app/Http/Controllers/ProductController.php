@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use App\Models\Season;
+use Illuminate\View\Component;
 
 class ProductController extends Controller
 {
@@ -15,18 +16,16 @@ class ProductController extends Controller
         return view('products.index', compact('products'));
     }
 
-    public function detail($productId)
+    public function detail(Product $product)
     {
-        $product = Product::with('seasons')->find($productId);
         $seasons = Season::all();
         return view('products.detail', compact('product', 'seasons'));
     }
 
-    public function update(ProductRequest $request, $productId)
+    public function update(ProductRequest $request, Product $product)
     {
         $file_name = $request->file('image')->getClientOriginalName();
         $request->file('image')->storeAs('', $file_name, 'public');
-        $product = Product::with('seasons')->find($productId);
         $update_product = $request->only('name', 'price', 'description');
         $update_product['image'] = 'storage/' . $file_name;
         $product->update($update_product);
@@ -34,9 +33,9 @@ class ProductController extends Controller
         return redirect('/products');
     }
 
-    public function destroy($productId)
+    public function destroy(Product $product)
     {
-        Product::find($productId)->delete();
+        $product->delete();
         return redirect('/products');
     }
 
@@ -55,5 +54,12 @@ class ProductController extends Controller
         $product = Product::create($create_product);
         $product->seasons()->attach($request->seasons);
         return redirect('/products');
+    }
+
+    public function search(Request $request)
+    {
+        $products = Product::with('seasons')->KeywordSearch($request->keyword)->paginate(6);
+        $old_data = $request->all();
+        return view('products.index', compact('products', 'old_data'));
     }
 }

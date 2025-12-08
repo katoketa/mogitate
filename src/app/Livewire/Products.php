@@ -8,6 +8,15 @@ class Products extends Component
 {
     public $products =[];
     public $sort_status = "";
+    public $keyword;
+
+    public function boot()
+    {
+        if ($this->sort_status == null) {
+            $this->sort_status = "";
+        }
+        $this->sort();
+    }
 
     public function resetSortStatus()
     {

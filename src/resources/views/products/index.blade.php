@@ -12,7 +12,11 @@
             <a href="/products/register" class="products-header__register-inner">+ 商品を追加</a>
         </div>
     </div>
+    @if (isset($old_data))
+    @livewire('products', ['products' => $products->all(), 'sort_status' => $old_data['sort_status'], 'keyword' => $old_data['keyword']])
+    @else
     @livewire('products', ['products' => $products->all()])
+    @endif
 
     <div class="products-page__paginate">
         {{ $products->links() }}
