@@ -59,6 +59,7 @@ class ProductController extends Controller
     public function search(Request $request)
     {
         $products = Product::with('seasons')->KeywordSearch($request->keyword)->paginate(6);
-        return view('products.index', compact('products'));
+        $old_data = $request->all();
+        return view('products.index', compact('products', 'old_data'));
     }
 }
