@@ -18,7 +18,7 @@
 - MySQL 8.0.26
 
 ## ER図
-<img width="1501" height="311" style="background:#fff" alt="Image" src="https://github.com/user-attachments/assets/0cb0595c-91e7-4918-8abb-51fdbb47fa6f" />
+<img width="1501" height="311" alt="Image" src="https://github.com/user-attachments/assets/a25508ad-88c0-4f3c-b872-a4879dc620c6" />
 
 ## URL
 - 商品一覧ページ http://localhost/products
