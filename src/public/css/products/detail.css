@@ -25,10 +25,18 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+
+    @media screen and (max-width: 600px) {
+        display: block;
+    }
 }
 
 .product-image {
     width: 48%;
+
+    @media screen and (max-width: 600px) {
+        width: 100%;
+    }
 }
 
 .product-image__img {
@@ -39,6 +47,10 @@
 
 .product-items {
     width: 48%;
+
+    @media screen and (max-width: 600px) {
+        width: 100%;
+    }
 }
 
 .product-item {
@@ -65,6 +77,14 @@
     position: relative;
     margin-right: 30px;
     padding-left: 25px;
+
+    @media screen and (max-width: 670px) {
+        margin-right: 20px;
+    }
+
+    @media screen and (max-width: 600px) {
+        margin-right: 30px;
+    }
 }
 
 .product-item__checkbox-label::before {
