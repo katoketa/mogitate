@@ -17,7 +17,6 @@
     @else
     @livewire('products', ['products' => $products->all()])
     @endif
-
     <div class="products-page__paginate">
         {{ $products->links() }}
     </div>
