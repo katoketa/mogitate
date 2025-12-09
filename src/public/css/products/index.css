@@ -16,17 +16,15 @@
 }
 
 .products-header__register {
-    background: #ffa929;
+    display: inline-block;
+    background: #ffa939;
     width: 120px;
-    text-align: center;
-    font-size: 14px;
     padding: 10px;
-    border-radius: 3px;
-}
-
-.products-header__register-inner {
+    font-size:14px;
     text-decoration: none;
+    text-align: center;
     color: #000;
+    border-radius: 3px;
 }
 
 .products-page__items {
