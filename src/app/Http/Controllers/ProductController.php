@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use App\Models\Season;
-use Illuminate\View\Component;
 
 class ProductController extends Controller
 {
@@ -58,7 +57,11 @@ class ProductController extends Controller
 
     public function search(Request $request)
     {
-        $products = Product::with('seasons')->KeywordSearch($request->keyword)->paginate(6);
+        $products = Product::with('seasons')->KeywordSearch($request->keyword);
+        if (isset($request->sort_status)) {
+            $products = $products->orderBy('price', $request->sort_status);
+        }
+        $products = $products->paginate(6);
         $old_data = $request->only('keyword', 'sort_status');
         $products->appends($old_data);
         return view('products.index', compact('products', 'old_data'));

@@ -15,7 +15,6 @@ class Products extends Component
         if ($this->sort_status == null) {
             $this->sort_status = "";
         }
-        $this->sort();
     }
 
     public function resetSortStatus()
@@ -31,9 +30,9 @@ class Products extends Component
 
     public function sort()
     {
-        if ($this->sort_status === "ascending-order") {
+        if ($this->sort_status === "asc") {
             array_multisort(array_column($this->products, 'price'), SORT_ASC, $this->products);
-        } elseif ($this->sort_status === "descending-order") {
+        } elseif ($this->sort_status === "desc") {
             array_multisort(array_column($this->products, 'price'), SORT_DESC, $this->products);
         } else {
             array_multisort(array_column($this->products, 'id'), SORT_ASC, $this->products);
