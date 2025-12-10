@@ -10,15 +10,15 @@
             <div class="sort__select">
                 <select class="sort__select-inner" wire:model.change="sort_status">
                     <option value="" disabled>価格で並び替え</option>
-                    <option value="descending-order">高い順に表示</option>
-                    <option value="ascending-order">低い順に表示</option>
+                    <option value="desc">高い順に表示</option>
+                    <option value="asc">低い順に表示</option>
                 </select>
-                @if ($sort_status === "descending-order")
+                @if ($sort_status === "desc")
                 <div class="sort__status">
                     高い順に表示
                     <button class="sort__status-button" wire:click="resetSortStatus">x</button>
                 </div>
-                @elseif ($sort_status === "ascending-order")
+                @elseif ($sort_status === "asc")
                 <div class="sort__status">
                     低い順に表示
                     <button class="sort__status-button" wire:click="resetSortStatus">x</button>
